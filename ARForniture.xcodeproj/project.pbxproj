@@ -13,7 +13,7 @@
 		6E1A6BA82C5FC61600490E16 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E1A6BA72C5FC61600490E16 /* Preview Assets.xcassets */; };
 		6E1A6BAF2C5FC95E00490E16 /* ARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1A6BAE2C5FC95E00490E16 /* ARViewContainer.swift */; };
 		6E1A6BB42C5FCB6F00490E16 /* cup_saucer_set.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 6E1A6BB12C5FCB6E00490E16 /* cup_saucer_set.usdz */; };
-		6E1A6BB52C5FCB6F00490E16 /* chair_swan.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 6E1A6BB22C5FCB6E00490E16 /* chair_swan.usdz */; };
+		6E1A6BB52C5FCB6F00490E16 /* redchair.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 6E1A6BB22C5FCB6E00490E16 /* redchair.usdz */; };
 		6E1A6BB62C5FCB6F00490E16 /* teapot.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 6E1A6BB32C5FCB6F00490E16 /* teapot.usdz */; };
 		6E1A6BBE2C5FCDA400490E16 /* ControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1A6BBD2C5FCDA400490E16 /* ControlView.swift */; };
 		6E1A6BC12C5FD12900490E16 /* ControlButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1A6BC02C5FD12900490E16 /* ControlButton.swift */; };
@@ -29,7 +29,7 @@
 		6E1A6BA72C5FC61600490E16 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6E1A6BAE2C5FC95E00490E16 /* ARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewContainer.swift; sourceTree = "<group>"; };
 		6E1A6BB12C5FCB6E00490E16 /* cup_saucer_set.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = cup_saucer_set.usdz; sourceTree = "<group>"; };
-		6E1A6BB22C5FCB6E00490E16 /* chair_swan.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = chair_swan.usdz; sourceTree = "<group>"; };
+		6E1A6BB22C5FCB6E00490E16 /* redchair.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = redchair.usdz; sourceTree = "<group>"; };
 		6E1A6BB32C5FCB6F00490E16 /* teapot.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = teapot.usdz; sourceTree = "<group>"; };
 		6E1A6BBD2C5FCDA400490E16 /* ControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlView.swift; sourceTree = "<group>"; };
 		6E1A6BC02C5FD12900490E16 /* ControlButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlButton.swift; sourceTree = "<group>"; };
@@ -91,7 +91,7 @@
 		6E1A6BB02C5FCB5400490E16 /* 3D Assets */ = {
 			isa = PBXGroup;
 			children = (
-				6E1A6BB22C5FCB6E00490E16 /* chair_swan.usdz */,
+				6E1A6BB22C5FCB6E00490E16 /* redchair.usdz */,
 				6E1A6BB12C5FCB6E00490E16 /* cup_saucer_set.usdz */,
 				6E1A6BB32C5FCB6F00490E16 /* teapot.usdz */,
 			);
@@ -167,7 +167,7 @@
 			files = (
 				6E1A6BA82C5FC61600490E16 /* Preview Assets.xcassets in Resources */,
 				6E1A6BA52C5FC61600490E16 /* Assets.xcassets in Resources */,
-				6E1A6BB52C5FCB6F00490E16 /* chair_swan.usdz in Resources */,
+				6E1A6BB52C5FCB6F00490E16 /* redchair.usdz in Resources */,
 				6E1A6BB42C5FCB6F00490E16 /* cup_saucer_set.usdz in Resources */,
 				6E1A6BB62C5FCB6F00490E16 /* teapot.usdz in Resources */,
 			);

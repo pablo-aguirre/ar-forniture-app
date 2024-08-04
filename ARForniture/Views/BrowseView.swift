@@ -36,7 +36,7 @@ struct ModelsByCategoryGrid: View {
             ForEach(ModelCategory.allCases, id: \.self) { category in
                 let models = models.get(by: category)
                 if !models.isEmpty {
-                    HorizontalGrid(isBrowseVisible: $isBrowseVisible, title: category.label, items: models)
+                    HorizontalGrid(isBrowseVisible: $isBrowseVisible, title: category.label, models: models)
                 }
             }
         }
@@ -46,7 +46,7 @@ struct ModelsByCategoryGrid: View {
 struct HorizontalGrid: View {
     @Binding var isBrowseVisible: Bool
     var title: String
-    var items: [Model]
+    var models: [Model]
     private let gridItemLayout = [GridItem(.fixed(150))]
     
     var body: some View {
@@ -58,11 +58,10 @@ struct HorizontalGrid: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHGrid(rows: gridItemLayout, spacing: 30) {
-                    ForEach(items) { item in
-                        ItemButton(model: item) {
+                    ForEach(models) { model in
+                        ItemButton(model: model) {
+                            model.asyncLoadModelEntity()
                             isBrowseVisible.toggle()
-                            print("BrowseView: selected \(item.name)")
-                            
                         }
                     }
                 }

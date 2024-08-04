@@ -38,12 +38,28 @@ class Model: Identifiable {
     var thumbnail: UIImage
     var modelEntity: ModelEntity?
     var scaleCompensation: Float
+    private var subscription: AnyCancellable?
     
     init(name: String, category: ModelCategory, scaleCompensation: Float = 1.0) {
         self.name = name
         self.category = category
         self.thumbnail = UIImage(named: name) ?? UIImage(systemName: "photo")!
         self.scaleCompensation = scaleCompensation
+    }
+    
+    func asyncLoadModelEntity() {
+        subscription = ModelEntity.loadModelAsync(named: name + ".usdz")
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    print("Unable to load modelEntity for \(self.name).usdz. Error: \(error.localizedDescription).")
+                }
+            } receiveValue: { modelEntity in
+                self.modelEntity = modelEntity
+                print("modelEntity for \(self.name) has beenloaded.")
+            }
     }
 }
 
