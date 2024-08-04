@@ -12,6 +12,9 @@
 		6E1A6BA52C5FC61600490E16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E1A6BA42C5FC61600490E16 /* Assets.xcassets */; };
 		6E1A6BA82C5FC61600490E16 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E1A6BA72C5FC61600490E16 /* Preview Assets.xcassets */; };
 		6E1A6BAF2C5FC95E00490E16 /* ARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1A6BAE2C5FC95E00490E16 /* ARViewContainer.swift */; };
+		6E1A6BB42C5FCB6F00490E16 /* cup_saucer_set.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 6E1A6BB12C5FCB6E00490E16 /* cup_saucer_set.usdz */; };
+		6E1A6BB52C5FCB6F00490E16 /* chair_swan.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 6E1A6BB22C5FCB6E00490E16 /* chair_swan.usdz */; };
+		6E1A6BB62C5FCB6F00490E16 /* teapot.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 6E1A6BB32C5FCB6F00490E16 /* teapot.usdz */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +24,9 @@
 		6E1A6BA42C5FC61600490E16 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6E1A6BA72C5FC61600490E16 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6E1A6BAE2C5FC95E00490E16 /* ARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewContainer.swift; sourceTree = "<group>"; };
+		6E1A6BB12C5FCB6E00490E16 /* cup_saucer_set.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = cup_saucer_set.usdz; sourceTree = "<group>"; };
+		6E1A6BB22C5FCB6E00490E16 /* chair_swan.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = chair_swan.usdz; sourceTree = "<group>"; };
+		6E1A6BB32C5FCB6F00490E16 /* teapot.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = teapot.usdz; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,7 @@
 				6E1A6BA02C5FC61400490E16 /* ARFornitureApp.swift */,
 				6E1A6BA22C5FC61400490E16 /* ContentView.swift */,
 				6E1A6BA42C5FC61600490E16 /* Assets.xcassets */,
+				6E1A6BB02C5FCB5400490E16 /* 3D Assets */,
 				6E1A6BA62C5FC61600490E16 /* Preview Content */,
 				6E1A6BAE2C5FC95E00490E16 /* ARViewContainer.swift */,
 			);
@@ -68,6 +75,16 @@
 				6E1A6BA72C5FC61600490E16 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6E1A6BB02C5FCB5400490E16 /* 3D Assets */ = {
+			isa = PBXGroup;
+			children = (
+				6E1A6BB22C5FCB6E00490E16 /* chair_swan.usdz */,
+				6E1A6BB12C5FCB6E00490E16 /* cup_saucer_set.usdz */,
+				6E1A6BB32C5FCB6F00490E16 /* teapot.usdz */,
+			);
+			path = "3D Assets";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,6 +147,9 @@
 			files = (
 				6E1A6BA82C5FC61600490E16 /* Preview Assets.xcassets in Resources */,
 				6E1A6BA52C5FC61600490E16 /* Assets.xcassets in Resources */,
+				6E1A6BB52C5FCB6F00490E16 /* chair_swan.usdz in Resources */,
+				6E1A6BB42C5FCB6F00490E16 /* cup_saucer_set.usdz in Resources */,
+				6E1A6BB62C5FCB6F00490E16 /* teapot.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
