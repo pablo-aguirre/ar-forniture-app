@@ -9,12 +9,14 @@ import SwiftUI
 import RealityKit
 import ARKit
 import FocusEntity
+import Combine
 
 struct ARViewContainer: UIViewRepresentable {
     @EnvironmentObject var placementSettings: PlacementSettings
+    @EnvironmentObject var sessionSettings: SessionSettings
     
     func makeUIView(context: Context) -> CustomARView {
-        let arView = CustomARView(frame: .zero)
+        let arView = CustomARView(frame: .zero, sessionSettings: sessionSettings)
         
         self.placementSettings.sceneObserver = arView.scene.subscribe(to: SceneEvents.Update.self, { event in
             updateScene(for: arView)
@@ -52,12 +54,24 @@ struct ARViewContainer: UIViewRepresentable {
 class CustomARView: ARView {
     
     var focusEntity: FocusEntity?
+    var sessionSettings: SessionSettings
     
-    required init(frame frameRect: CGRect) {
+    private var peopleOcclusionCancellable: AnyCancellable?
+    private var objectOcclusionCancellable: AnyCancellable?
+    private var lidarDebugCancellable: AnyCancellable?
+    
+    required init(frame frameRect: CGRect, sessionSettings: SessionSettings) {
+        self.sessionSettings = sessionSettings
         super.init(frame: frameRect)
         
         focusEntity = .init(on: self, focus: .classic)
         configure()
+        initializeSettings()
+        setupSubscribers()
+    }
+    
+    required init(frame frameRect: CGRect) {
+        fatalError("init(frame:) has not been implemented")
     }
     
     @MainActor required dynamic init?(coder decoder: NSCoder) {
@@ -67,7 +81,61 @@ class CustomARView: ARView {
     private func configure() {
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = [.horizontal, .vertical]
+        
+        if ARWorldTrackingConfiguration.supportsSceneReconstruction(.mesh) {
+            configuration.sceneReconstruction = .mesh
+        }
+        
         self.session.run(configuration)
+    }
+    
+    private func initializeSettings() {
+        self.updatePeopleOcclusion(isEnabled: sessionSettings.isPeopleOcclusionEnabled)
+        self.updateObjectOcclusion(isEnabled: sessionSettings.isObjectsOcclusionEnabled)
+        self.updateLidarDebug(isEnabled: sessionSettings.isLidarDebugEnabled)
+    }
+    
+    private func setupSubscribers() {
+        self.peopleOcclusionCancellable = sessionSettings.$isPeopleOcclusionEnabled.sink { [weak self] isEnabled in
+            self?.updatePeopleOcclusion(isEnabled: isEnabled)
+        }
+        
+        self.objectOcclusionCancellable = sessionSettings.$isObjectsOcclusionEnabled.sink { [weak self] isEnabled in
+            self?.updateObjectOcclusion(isEnabled: isEnabled)
+        }
+        
+        self.lidarDebugCancellable = sessionSettings.$isLidarDebugEnabled.sink { [weak self] isEnabled in
+            self?.updateLidarDebug(isEnabled: isEnabled)
+        }
+    }
+    
+    private func updatePeopleOcclusion(isEnabled: Bool) {
+        guard ARWorldTrackingConfiguration.supportsFrameSemantics(.personSegmentationWithDepth) else { return }
+        guard let configuration = self.session.configuration as? ARWorldTrackingConfiguration else { return }
+        
+        if configuration.frameSemantics.contains(.personSegmentationWithDepth) {
+            configuration.frameSemantics.remove(.personSegmentationWithDepth)
+        } else {
+            configuration.frameSemantics.insert(.personSegmentationWithDepth)
+        }
+        
+        self.session.run(configuration)
+    }
+    
+    private func updateObjectOcclusion(isEnabled: Bool) {
+        if self.environment.sceneUnderstanding.options.contains(.occlusion) {
+            self.environment.sceneUnderstanding.options.remove(.occlusion)
+        } else {
+            self.environment.sceneUnderstanding.options.insert(.occlusion)
+        }
+    }
+    
+    private func updateLidarDebug(isEnabled: Bool) {
+        if self.debugOptions.contains(.showSceneUnderstanding) {
+            self.debugOptions.remove(.showSceneUnderstanding)
+        } else {
+            self.debugOptions.insert(.showSceneUnderstanding)
+        }
     }
     
 }

@@ -10,6 +10,7 @@ import SwiftUI
 struct ControlButtonBar: View {
     @EnvironmentObject var placementSettings: PlacementSettings
     @Binding var isBrowseVisible: Bool
+    @Binding var isSettingsVisible: Bool
     
     var body: some View {
         HStack {
@@ -28,6 +29,9 @@ struct ControlButtonBar: View {
             
             ControlButton(systemIconName: "slider.horizontal.3") {
                 print("Settings button pressed")
+                isSettingsVisible.toggle()
+            }.sheet(isPresented: $isSettingsVisible) {
+                SettingsView(showSettings: $isSettingsVisible)
             }
         }
         .frame(maxWidth: 500)

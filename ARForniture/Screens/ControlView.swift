@@ -10,13 +10,14 @@ import SwiftUI
 struct ControlView: View {
     @Binding var isControlsVisible: Bool
     @Binding var isBrowseVisible: Bool
+    @Binding var isSettingsVisible: Bool
     
     var body: some View {
         VStack {
             ControlVisibilityToggleButton(isControlsVisible: $isControlsVisible)
             Spacer()
             if isControlsVisible {
-                ControlButtonBar(isBrowseVisible: $isBrowseVisible)
+                ControlButtonBar(isBrowseVisible: $isBrowseVisible, isSettingsVisible: $isSettingsVisible)
             }
         }
     }
