@@ -19,6 +19,8 @@
 		6E1A6BC12C5FD12900490E16 /* ControlButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1A6BC02C5FD12900490E16 /* ControlButton.swift */; };
 		6E1A6BC32C5FE8C900490E16 /* BrowseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1A6BC22C5FE8C900490E16 /* BrowseView.swift */; };
 		6E1A6BC52C5FF26700490E16 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1A6BC42C5FF26700490E16 /* Model.swift */; };
+		6E1A6BC72C60AD5500490E16 /* ControlVisibilityToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1A6BC62C60AD5500490E16 /* ControlVisibilityToggleButton.swift */; };
+		6E1A6BC92C60AD9C00490E16 /* ControlButtonBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1A6BC82C60AD9C00490E16 /* ControlButtonBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		6E1A6BC02C5FD12900490E16 /* ControlButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlButton.swift; sourceTree = "<group>"; };
 		6E1A6BC22C5FE8C900490E16 /* BrowseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseView.swift; sourceTree = "<group>"; };
 		6E1A6BC42C5FF26700490E16 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		6E1A6BC62C60AD5500490E16 /* ControlVisibilityToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlVisibilityToggleButton.swift; sourceTree = "<group>"; };
+		6E1A6BC82C60AD9C00490E16 /* ControlButtonBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlButtonBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,15 +71,13 @@
 		6E1A6B9F2C5FC61400490E16 /* ARForniture */ = {
 			isa = PBXGroup;
 			children = (
+				6E1A6BCB2C60AE0300490E16 /* Screens */,
 				6E1A6BBF2C5FD10D00490E16 /* Views */,
+				6E1A6BCA2C60ADF200490E16 /* Models */,
 				6E1A6BA02C5FC61400490E16 /* ARFornitureApp.swift */,
-				6E1A6BA22C5FC61400490E16 /* ContentView.swift */,
-				6E1A6BBD2C5FCDA400490E16 /* ControlView.swift */,
 				6E1A6BA42C5FC61600490E16 /* Assets.xcassets */,
 				6E1A6BB02C5FCB5400490E16 /* 3D Assets */,
 				6E1A6BA62C5FC61600490E16 /* Preview Content */,
-				6E1A6BAE2C5FC95E00490E16 /* ARViewContainer.swift */,
-				6E1A6BC42C5FF26700490E16 /* Model.swift */,
 			);
 			path = ARForniture;
 			sourceTree = "<group>";
@@ -103,8 +105,28 @@
 			children = (
 				6E1A6BC02C5FD12900490E16 /* ControlButton.swift */,
 				6E1A6BC22C5FE8C900490E16 /* BrowseView.swift */,
+				6E1A6BC62C60AD5500490E16 /* ControlVisibilityToggleButton.swift */,
+				6E1A6BC82C60AD9C00490E16 /* ControlButtonBar.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		6E1A6BCA2C60ADF200490E16 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6E1A6BC42C5FF26700490E16 /* Model.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6E1A6BCB2C60AE0300490E16 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				6E1A6BA22C5FC61400490E16 /* ContentView.swift */,
+				6E1A6BAE2C5FC95E00490E16 /* ARViewContainer.swift */,
+				6E1A6BBD2C5FCDA400490E16 /* ControlView.swift */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,6 +207,8 @@
 				6E1A6BA32C5FC61400490E16 /* ContentView.swift in Sources */,
 				6E1A6BC12C5FD12900490E16 /* ControlButton.swift in Sources */,
 				6E1A6BA12C5FC61400490E16 /* ARFornitureApp.swift in Sources */,
+				6E1A6BC72C60AD5500490E16 /* ControlVisibilityToggleButton.swift in Sources */,
+				6E1A6BC92C60AD9C00490E16 /* ControlButtonBar.swift in Sources */,
 				6E1A6BC32C5FE8C900490E16 /* BrowseView.swift in Sources */,
 				6E1A6BAF2C5FC95E00490E16 /* ARViewContainer.swift in Sources */,
 			);
