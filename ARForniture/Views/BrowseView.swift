@@ -44,6 +44,7 @@ struct ModelsByCategoryGrid: View {
 }
 
 struct HorizontalGrid: View {
+    @EnvironmentObject var placementSettings: PlacementSettings
     @Binding var isBrowseVisible: Bool
     var title: String
     var models: [Model]
@@ -61,6 +62,7 @@ struct HorizontalGrid: View {
                     ForEach(models) { model in
                         ItemButton(model: model) {
                             model.asyncLoadModelEntity()
+                            placementSettings.selectedModel = model
                             isBrowseVisible.toggle()
                         }
                     }
