@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct ControlButtonBar: View {
+    @EnvironmentObject var placementSettings: PlacementSettings
     @Binding var isBrowseVisible: Bool
     
     var body: some View {
         HStack {
-            ControlButton(systemIconName: "clock.fill") {
-                print("MostRecentlyPlaced button pressed")
-            }
+            MostRecentlyPlacedButton().hidden(placementSettings.recentlyPlaced.isEmpty)
             
             Spacer()
             

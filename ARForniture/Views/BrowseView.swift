@@ -13,6 +13,7 @@ struct BrowseView: View {
     var body: some View {
         NavigationView {
             ScrollView {
+                RecentsGrid(isBrowseVisible: $isBrowseVisible)
                 ModelsByCategoryGrid(isBrowseVisible: $isBrowseVisible)
             }
             .navigationTitle("Browse")
@@ -90,4 +91,28 @@ struct ItemButton: View {
                 .presentationCornerRadius(8.0)
         })
     }
+}
+
+struct RecentsGrid: View {
+    @EnvironmentObject var placementSettings: PlacementSettings
+    @Binding var isBrowseVisible: Bool
+    
+    var body: some View {
+        if !placementSettings.recentlyPlaced.isEmpty {
+            HorizontalGrid(isBrowseVisible: $isBrowseVisible, title: "Recents", models: getRecentsUniqueOrdered())
+        }
+    }
+    
+    func getRecentsUniqueOrdered() -> [Model] {
+        var recentsUniqueOrderedArray: [Model] = []
+        let modelNameSet: Set<String> = []
+        
+        for model in placementSettings.recentlyPlaced.reversed() {
+            if !modelNameSet.contains(model.name) {
+                recentsUniqueOrderedArray.append(model)
+            }
+        }
+        return recentsUniqueOrderedArray
+    }
+    
 }
